@@ -2,6 +2,7 @@ package aurora
 
 import (
 	"fmt"
+
 	"github.com/andersfylling/disgord"
 )
 
@@ -41,10 +42,10 @@ func (a *Aurora) Init() error {
 	for k := range Events {
 		event := Events[k]
 		fmt.Printf("%t\n", event.Run(a))
-		err := a.On(event.Name, event.Run(a))
-		if err != nil {
-			a.Logger.Error(fmt.Sprintf("Failed to load event %s: %v", event.Name, err))
-		}
+		a.On(event.Name, event.Run(a))
+		// if err != nil {
+		// 	a.Logger.Error(fmt.Sprintf("Failed to load event %s: %v", event.Name, err))
+		// }
 	}
 	a.Logger.Info(fmt.Sprintf("Loaded %d events", len(Events)))
 	a.DisconnectOnInterrupt()

@@ -1,3 +1,3 @@
-module github.com/polaron/aurora
+module github.com/pazuzu156/aurora
 
-require github.com/andersfylling/disgord v0.9.6
+require github.com/andersfylling/disgord v0.11.3
