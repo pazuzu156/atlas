@@ -2,11 +2,12 @@ package aurora
 
 import (
 	"fmt"
-	"github.com/andersfylling/disgord"
-	"github.com/andersfylling/disgord/event"
 	"math"
 	"strings"
 	"time"
+
+	"github.com/andersfylling/disgord"
+	"github.com/andersfylling/disgord/event"
 )
 
 type Event struct {
@@ -32,23 +33,22 @@ func defaultMessageHandler(a *Aurora) interface{} {
 		}
 
 		isCommand := strings.HasPrefix(m.Content, prefix)
+
 		if !isCommand {
 			return
 		}
-		raw := strings.SplitAfter(m.Content, prefix)
-		// only the prefix was sent, no command
-		if len(raw) == 1 {
-			return
-		}
-		trimmed := strings.Trim(raw[1], " ")
-		rawArgs := strings.Split(trimmed, " ")
-		var args []string
+
+		raw := strings.TrimLeft(m.Content, prefix)
+		rawArgs := strings.Split(raw, " ")
 		cmd := rawArgs[0]
+		var args []string
 
 		if len(rawArgs) > 1 {
 			args = rawArgs[1:]
 		}
+
 		command, ok := Commands[cmd]
+
 		if !ok {
 			return
 		}
@@ -58,7 +58,7 @@ func defaultMessageHandler(a *Aurora) interface{} {
 		command.Run(ctx)
 		diff := int(math.Round(float64(time.Now().Sub(t).Nanoseconds() / 1e6)))
 
-		a.Logger.Info(fmt.Sprintf("%s used command %s (%f)", m.Author.Username, command.Name, diff))
+		a.Logger.Info(fmt.Sprintf("%s used command %s (%d)", m.Author.Username, command.Name, diff))
 	}
 }
 
