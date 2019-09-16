@@ -1,6 +1,10 @@
 # Aurora
 
-Aurora is a framework for building feature rich Discord bots in Go. Currently, Aurora only supports [Disgord](https://github.com/andersfylling/disgord), but a discordgo branch is planned.
+**This is a fork of [polaron/aurora](https://github.com/polaron/aurora)**
+
+~~Aurora is a framework for building feature rich Discord bots in Go. Currently, Aurora only supports [Disgord](https://github.com/andersfylling/disgord), but a discordgo branch is planned.~~
+
+Aurora is a simple command framework built for use with [Disgord](https://github.com/andersfylling/disgord)
 
 ## Installation
 
@@ -8,9 +12,9 @@ Aurora supports Go modules/vgo and they're the recommended way to install it. I 
 ```
 module username/project
 
-require github.com/polaron/aurora v{VERSION}
+require github.com/pazuzu156/aurora v{VERSION}
 ```
-For a list of releases, check the [tags](https://github.com/polaron/aurora/releases).
+For a list of releases, check the [tags](https://github.com/pazuzu156/aurora/releases).
 
 ## Usage
 
@@ -23,7 +27,7 @@ client := aurora.New(&aurora.Options{
 })
 ```
 
-For adding commands, check the [examples](https://github.com/polaron/aurora/tree/master/examples).
+For adding commands, check the [examples](https://github.com/pazuzu156/aurora/tree/master/examples).
 
 ## Docs
 

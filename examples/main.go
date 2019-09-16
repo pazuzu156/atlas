@@ -2,7 +2,8 @@ package main
 
 import (
 	"github.com/andersfylling/disgord"
-	"github.com/polaron/aurora"
+	"github.com/pazuzu156/aurora"
+	
 	"os"
 )
 
