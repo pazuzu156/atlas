@@ -1,4 +1,4 @@
-package aurora
+package atlas
 
 import (
 	"fmt"
@@ -6,15 +6,17 @@ import (
 	"github.com/andersfylling/disgord"
 )
 
-func New(opts *Options) *Aurora {
-	aurora := &Aurora{Options: opts}
+func New(opts *Options) *Atlas {
+	atlas := &Atlas{Options: opts}
 	client, err := disgord.NewClient(opts.DisgordOptions)
+
 	if err != nil {
 		panic(fmt.Sprintf("failure to initialize disgord: %s", err.Error()))
 	}
 
-	aurora.Disgord = client
-	return aurora
+	atlas.Disgord = client
+
+	return atlas
 }
 
 func Use(a interface{}) {
@@ -32,7 +34,7 @@ func Use(a interface{}) {
 	}
 }
 
-func (a *Aurora) Init() error {
+func (a *Atlas) Init() error {
 	err := a.Connect()
 	if err != nil {
 		return err
@@ -52,7 +54,7 @@ func (a *Aurora) Init() error {
 	return nil
 }
 
-func (a *Aurora) Use(v interface{}) {
+func (a *Atlas) Use(v interface{}) {
 	switch t := v.(type) {
 	case Logger:
 		a.Logger = t

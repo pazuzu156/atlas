@@ -1,4 +1,4 @@
-package aurora
+package atlas
 
 import (
 	"fmt"
@@ -12,18 +12,18 @@ import (
 
 type Event struct {
 	Name string                      // the event name
-	Run  func(a *Aurora) interface{} // the handler called on the event
+	Run  func(a *Atlas) interface{} // the handler called on the event
 }
 
 var Events = make(map[string]*Event)
 
-func NewEvent(name string, handler func(a *Aurora) interface{}) *Event {
+func NewEvent(name string, handler func(a *Atlas) interface{}) *Event {
 	return &Event{name, handler}
 }
 
-// Default Aurora events
+// Default Atlas events
 // the message handler event is used for command routing
-func defaultMessageHandler(a *Aurora) interface{} {
+func defaultMessageHandler(a *Atlas) interface{} {
 	return func(s disgord.Session, msg *disgord.MessageCreate) {
 		m := msg.Message
 		prefix := a.GetPrefix(m)

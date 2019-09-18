@@ -1,4 +1,4 @@
-package aurora
+package atlas
 
 import "log"
 

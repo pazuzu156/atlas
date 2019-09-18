@@ -1,4 +1,4 @@
-package aurora
+package atlas
 
 import "github.com/andersfylling/disgord"
 
@@ -8,7 +8,7 @@ type Disgord interface {
 	disgord.Session
 }
 
-type Aurora struct {
+type Atlas struct {
 	Disgord
 	Options   *Options
 	Logger    Logger
@@ -22,7 +22,7 @@ type Options struct {
 
 type Context struct {
 	Message *disgord.Message
-	Aurora  *Aurora
+	Atlas  *Atlas
 	Args    []string
 }
 

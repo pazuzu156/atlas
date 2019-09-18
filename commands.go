@@ -1,4 +1,4 @@
-package aurora
+package atlas
 
 var Commands = make(map[string]*Command)
 
