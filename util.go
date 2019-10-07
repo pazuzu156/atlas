@@ -21,5 +21,5 @@ func DefaultLogger() Logger {
 }
 
 func init() {
-	log.SetPrefix("[AURORA] ")
+	log.SetPrefix("[ATLAS] ")
 }

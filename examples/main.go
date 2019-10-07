@@ -2,22 +2,22 @@ package main
 
 import (
 	"github.com/andersfylling/disgord"
-	"github.com/pazuzu156/aurora"
+	"github.com/pazuzu156/atlas"
 	
 	"os"
 )
 
-var pingCommand = aurora.NewCommand("ping").SetDescription("Ping/pong command")
+var pingCommand = atlas.NewCommand("ping").SetDescription("Ping/pong command")
 
 func main() {
-	client := aurora.New(&aurora.Options{
+	client := atlas.New(&atlas.Options{
 		DisgordOptions: &disgord.Config{
 			BotToken: os.Getenv("DISCORD_TOKEN"),
 			Logger:   disgord.DefaultLogger(false),
 		},
 	})
 
-	client.Use(aurora.DefaultLogger())
+	client.Use(atlas.DefaultLogger())
 	client.GetPrefix = func(m *disgord.Message) string {
 		return "!"
 	}
@@ -27,9 +27,9 @@ func main() {
 }
 
 func init() {
-	pingCommand.Run = func(c aurora.Context) {
-		c.Message.RespondString(c.Aurora, "Pong!")
+	pingCommand.Run = func(c atlas.Context) {
+		c.Message.RespondString(c.Atlas, "Pong!")
 	}
 
-	aurora.Use(pingCommand)
+	atlas.Use(pingCommand)
 }
