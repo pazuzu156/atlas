@@ -43,7 +43,7 @@ func (a *Atlas) Init() error {
 
 	for k := range Events {
 		event := Events[k]
-		fmt.Printf("%t\n", event.Run(a))
+		// fmt.Printf("%t\n", event.Run(a))
 		a.On(event.Name, event.Run(a))
 		// if err != nil {
 		// 	a.Logger.Error(fmt.Sprintf("Failed to load event %s: %v", event.Name, err))
