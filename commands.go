@@ -3,11 +3,11 @@ package atlas
 var Commands = make(map[string]*Command)
 
 type Command struct {
-	Name         string            // the name of the command
-	Aliases      []string          // other valid command names
-	Description  string            // a description of the command, shown in the help message
-	ExtendedHelp string            // extended help
-	Run          func(ctx Context) // the code called when the command is executed
+	Name        string   // the name of the command
+	Aliases     []string // other valid command names
+	Description string   // a description of the command, shown in the help message
+	// ExtendedHelp string            // extended help // unused
+	Run func(ctx Context) // the code called when the command is executed
 }
 
 func NewCommand(name string) *Command {

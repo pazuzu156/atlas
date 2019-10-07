@@ -22,8 +22,8 @@ type Options struct {
 
 type Context struct {
 	Message *disgord.Message
-	Atlas  *Atlas
-	Args    []string
+	Atlas   *Atlas
+	Args    map[int]string
 }
 
 type Logger interface {

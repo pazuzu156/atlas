@@ -11,7 +11,7 @@ import (
 )
 
 type Event struct {
-	Name string                      // the event name
+	Name string                     // the event name
 	Run  func(a *Atlas) interface{} // the handler called on the event
 }
 
@@ -41,10 +41,14 @@ func defaultMessageHandler(a *Atlas) interface{} {
 		raw := strings.TrimLeft(m.Content, prefix)
 		rawArgs := strings.Split(raw, " ")
 		cmd := rawArgs[0]
-		var args []string
+		args := make(map[int]string)
 
 		if len(rawArgs) > 1 {
-			args = rawArgs[1:]
+			rawArgs = rawArgs[1:]
+
+			for i, arg := range rawArgs {
+				args[i] = arg
+			}
 		}
 
 		command, ok := Commands[cmd]

@@ -54,6 +54,7 @@ func (a *Atlas) Init() error {
 	return nil
 }
 
+// Unused?
 func (a *Atlas) Use(v interface{}) {
 	switch t := v.(type) {
 	case Logger:
