@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/andersfylling/disgord"
-	"github.com/andersfylling/disgord/event"
 )
 
 type Event struct {
@@ -67,5 +66,5 @@ func defaultMessageHandler(a *Atlas) interface{} {
 }
 
 func init() {
-	Use(NewEvent(event.MessageCreate, defaultMessageHandler))
+	Use(NewEvent("MESSAGE_CREATE", defaultMessageHandler))
 }

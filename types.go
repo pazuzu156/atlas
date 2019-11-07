@@ -17,7 +17,7 @@ type Atlas struct {
 
 type Options struct {
 	OwnerID        string
-	DisgordOptions *disgord.Config
+	DisgordOptions disgord.Config
 }
 
 type Context struct {
