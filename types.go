@@ -1,6 +1,8 @@
 package atlas
 
-import "github.com/andersfylling/disgord"
+import (
+	"github.com/andersfylling/disgord"
+)
 
 type Disgord interface {
 	Connect() error
