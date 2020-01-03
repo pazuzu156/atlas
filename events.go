@@ -1,6 +1,7 @@
 package atlas
 
 import (
+	"context"
 	"fmt"
 	"math"
 	"strings"
@@ -56,7 +57,7 @@ func defaultMessageHandler(a *Atlas) interface{} {
 			return
 		}
 
-		ctx := Context{m, a, args}
+		ctx := Context{m, a, args, context.Background()}
 		t := time.Now()
 		command.Run(ctx)
 		diff := int(math.Round(float64(time.Now().Sub(t).Nanoseconds() / 1e6)))

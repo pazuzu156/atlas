@@ -28,6 +28,7 @@ type Context struct {
 	Message *disgord.Message
 	Atlas   *Atlas
 	Args    map[int]string
+	Context context.Context
 }
 
 type Logger interface {
