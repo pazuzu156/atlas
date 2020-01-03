@@ -1,6 +1,7 @@
 package atlas
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/andersfylling/disgord"
@@ -35,7 +36,7 @@ func Use(a interface{}) {
 }
 
 func (a *Atlas) Init() error {
-	err := a.Connect()
+	err := a.Connect(context.Background())
 	if err != nil {
 		return err
 	}

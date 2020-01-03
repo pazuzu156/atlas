@@ -1,11 +1,13 @@
 package atlas
 
 import (
+	"context"
+
 	"github.com/andersfylling/disgord"
 )
 
 type Disgord interface {
-	Connect() error
+	Connect(ctx context.Context) error
 	DisconnectOnInterrupt() error
 	disgord.Session
 }
